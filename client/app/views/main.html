@@ -1,21 +1,22 @@
-<style>
-  div.blog-list-item {
-    height: auto;
-    min-height: 100px;
-  }
-</style>
 <div ng-controller="MainCtrl as main">
   <div>
-    <div class="col-sm-9">
-      <h2>Blogs You Wrote</h2>
-      <div ng-repeat="blog in main.blogs" class="row blog-list-item well">
-        <div class="col-xs-12">
-          <h4>{{blog.title}}</h4>
-          <div>
-            {{blog.description}}
-          </div>
-          <div>
-            - <a href="#/aa">{{blog.author.name}}</a>
+    <div class="col-sm-9 well">
+      <h2>Recent Posts</h2>
+      <div ng-repeat="blog in main.blogs" class="row list-group">
+        <div class="list-group-item">
+          <a href="#" class="list-group-item-heading">
+            <h3>
+              {{blog.title}}
+            </h3>
+          </a>
+          <div class="list-group-item-text">
+            <h4>
+              {{blog.description}}
+            </h4>
+
+            <p class="post-meta">Posted by <a href="#">{{blog.author.name}}</a> on {{blog.timestamp | date:'MMMM dd, yyyy'}}
+
+            </p>
           </div>
         </div>
       </div>
