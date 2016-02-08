@@ -16,6 +16,7 @@ app.use(cookieParser());
 if ('production' == app.get('env')) {
     app.use(express.static(path.join(__dirname, '/dist')));
 } else {
+    console.log("blah");
     app.use(express.static(path.join(__dirname, '../client')));
     app.use(express.static(path.join(__dirname, '../client/.tmp')));
     app.use(express.static(path.join(__dirname, '../client/app')));
@@ -53,7 +54,7 @@ app.use(function (err, req, res, next) {
     });
 });
 
-var server = app.listen(3000, function () {
+var server = app.listen(process.env.PORT, process.env.IP, function () {
     console.log('Listening on port %d', server.address().port);
 });
 
